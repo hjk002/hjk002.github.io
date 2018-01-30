@@ -2,7 +2,7 @@
 .left-col{
 
 
-	background-image: url('img/wo.jpg') no-repeat centent/cover;
+	background: url('img/wo.jpg') no-repeat center/cover;
 	width:300px;position:fixed;opacity:1;transition:all .2s ease-in;height:100%;z-index:999}
 .left-col .overlay{width:100%;height:180px;position:absolute}
 .left-col .intrude-less{width:76%;text-align:center;margin:112px auto 0}
@@ -20,4 +20,5 @@
 }
 .toc-article ol, .toc-article ul {
     margin: 10px 0;
+    
 }
