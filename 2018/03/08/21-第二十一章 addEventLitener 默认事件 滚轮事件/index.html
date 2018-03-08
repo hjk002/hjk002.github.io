@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>科科欢迎你</title>
+  <meta name="author" content="我的小窝欢迎你">
+  
+  <meta name="description" content="21-第二十一章 addEventLitener 默认事件 滚轮事件
+.note-content  {font-family: &#39;Helvetica Neue&#39;, Arial, &#39;Hiragino Sans GB&#39;, STHeiti, &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Mi">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="科科欢迎你"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="科科欢迎你" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="科科欢迎你" title="科科欢迎你"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">科科欢迎你</h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="我的小窝欢迎你">我的小窝欢迎你</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-03-08T04:07:48.593Z" itemprop="datePublished">2018-03-08</time>
+    Update date:<time datetime="2017-11-06T06:20:39.665Z" itemprop="dateModified">2017-11-06</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <script src="\assets\js\APlayer.min.js"> </script><!DOCTYPE html><html><head><title>21-第二十一章 addEventLitener 默认事件 滚轮事件</title><meta charset="utf-8"><link href="https://dn-maxiang.qbox.me/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="21-第二十一章-addeventlitener-默认事件-滚轮事件">21-第二十一章 addEventLitener 默认事件 滚轮事件</h1>
+
+<hr>
+
+
+
+<h2 id="一事件event对象">一、事件event对象</h2>
+
+<blockquote>
+  <p>Event对象 <br>
+  用来获取事件的详细信息：<code>鼠标位置</code>、<code>键盘按键</code></p>
+</blockquote>
+
+<hr>
+
+<p>兼容</p>
+
+<ul><li><strong>标准下</strong> : 事件对象是通过事件函数的<code>第一个参数</code></li>
+</ul>
+
+<blockquote>
+  <p>传入 如果一个函数是被事件调用的那么，这个函数定义的第一个参数就是事件对象</p>
+  
+  <ul><li><strong>ie</strong>: event是一个内置全局对象</li>
+  </ul>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span>  obj.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ev</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    <span class="hljs-keyword">var</span> ev = ev || <span class="hljs-built_in">window</span>.event;
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>}
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">abc</span>(<span class="hljs-params">ev</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>    <span class="hljs-keyword">var</span> ev = ev || <span class="hljs-built_in">window</span>.event;
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>}
+</div></code></pre>
+
+<p>Event对象的兼容：ev = <code>ev</code> || <code>window.event</code>;</p>
+
+<p>Event对象下的获取鼠标位置：e.<code>clientX</code> e.<code>clientY</code></p>
+
+<hr>
+
+
+
+<h2 id="二事件冒泡">二事件冒泡</h2>
+
+<blockquote>
+  <p>事件冒泡指子元素触发事件的时候，会 <code>冒泡</code>（触发）父级的相同的事件 <br>
+  非标准：ev.<code>stopPopagation()</code>; <br>
+  非标准：ev.<code>cancelBubble=true</code>;</p>
+</blockquote>
+
+<hr>
+
+
+
+<h2 id="三-注册处理事件">三 注册处理事件</h2>
+
+
+
+<h4 id="1标准objaddeventlistener事件名称事件函数是否捕获">1、标准：obj.<code>addEventListener(</code>事件名称，事件函数，是否捕获<code>)</code>;</h4>
+
+<p>是否捕获  <br>
+            <code>false</code>冒泡 <br>
+            <code>true</code>捕获 <br>
+                先捕获后冒泡  <br>
+1.有捕获 <br>
+2.事件名称<code>没有on</code> <br>
+3.事件执行的顺序是<code>正序</code> <br>
+4.<code>this</code>触发该<code>事件的对象</code></p>
+
+
+
+<h4 id="2低版ieobjattachevent事件名称事件函数">2、低版ie：obj.<code>attachEvent(</code>事件名称，事件函数<code>)</code>;</h4>
+
+<p>1.没有捕获 <br>
+2.事件名称<code>有on</code> <br>
+3.事件函数执行的顺序：标准ie-》<code>正序</code>   非标准ie-》<code>倒序</code> <br>
+4.<code>this</code>指向<code>window</code></p>
+
+
+
+<h4 id="3-移除-objremoveeventlistener事件名称事件函数">3、 移除 obj.<code>removeEventListener(</code>事件名称，事件函数<code>)</code></h4>
+
+
+
+<h4 id="4-移除-objectdetachevent事件名称function">4、 移除 object.<code>detachEvent(</code>事件名称,function<code>)</code>;</h4>
+
+<hr>
+
+<hr>
+
+
+
+<h2 id="四拖拽">四、拖拽</h2>
+
+<ul><li><code>onmousedown</code> </li>
+<li><code>onmousemove</code></li>
+<li><code>onmouseup</code></li>
+</ul>
+
+
+
+<h2 id="五默认事件">五、默认事件</h2>
+
+<hr>
+
+<p>右键菜单 :  <code>oncontextmenu</code></p>
+
+<p>解决：文字选中再的问题 <br>
+标准：解决办法 <code>return false</code> (阻止默认事件) <br>
+非标准ie：全局捕获</p>
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs autohotkey"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>`onselectstart=<span class="hljs-string">"return false"</span>` 处理文字选中
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span> 或者添加`ondragstart=<span class="hljs-string">"return false"</span>` 处理图片拖动
+</div></code></pre>
+
+<p>标准下阻止默认事件，可以拖拽图片啦</p>
+
+<hr>
+
+<h2 id="六鼠标滚轮事件">六、鼠标滚轮事件</h2>
+
+<p>Ie/chrome : <code>onmousewheel</code>  <br>
+event.<code>wheelDelta</code> <br>
+上：120 <br>
+下：-120 <br>
+firefox : <code>DOMMouseScroll</code>  必须用<code>addEventListener()</code>添加</p>
+
+<p>fire:event.<code>detail</code> <br>
+上：-3 <br>
+下：3 <br>
+滚轮属性：event<code>.wheelDelta</code> \ <code>event.detail</code></p>
+
+<p><strong>兼容</strong>：</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>                obj.onmousewheel = handle;<span class="hljs-comment">//兼容ie chrome</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>                obj.addEventListener?obj.addEventListener(<span class="hljs-string">'DOMMouseScroll'</span>,handle,boolean):<span class="hljs-literal">false</span>;   <span class="hljs-comment">//兼容firefox</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>             <span class="hljs-comment">//滚动函数event对象处理</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle</span>(<span class="hljs-params">e</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>                e = e || <span class="hljs-built_in">window</span>.event;
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>                e.wheel = e.wheelDelta?e.wheelDelta:-e.detail*<span class="hljs-number">40</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>            }
+</div></code></pre>
+
+<p>阻止默认事件： <br>
+标准：<code>event.preventDefault()</code> <br>
+非标准：<code>event.returnValue = false</code>;</p>
+
+<blockquote>
+  <p>return false阻止的是  obj.on事件名称=fn 所触发的默认行为 <br>
+  addEventListener绑定的事件需要通过event下面的event.<code>preventDefault()</code>; <br>
+  detachEvent绑定的事件需要通过event下面的event.<code>returnValue=false</code>;</p>
+</blockquote>
+
+<p>鼠标滚轮与自定义滚动条结合   </p>
+
+
+
+<h2 id="七全兼容添加删除事件-封装">七、全兼容添加/删除事件 封装</h2>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs typescript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-comment">//添加事件</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addEvent</span>(<span class="hljs-params">obj,<span class="hljs-keyword">type</span>,fn,<span class="hljs-built_in">boolean</span></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>            <span class="hljs-built_in">boolean</span> = <span class="hljs-built_in">boolean</span> || <span class="hljs-literal">false</span>;<span class="hljs-comment">//处理捕获冒泡</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>            obj[<span class="hljs-keyword">type</span>+fn.name]=handle;<span class="hljs-comment">//添加方法</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>            obj.addEventListener?obj.addEventListener(<span class="hljs-keyword">type</span>,obj[<span class="hljs-keyword">type</span>+fn.name],<span class="hljs-built_in">boolean</span>):obj.attachEvent(<span class="hljs-string">'on'</span>+<span class="hljs-keyword">type</span>,obj[<span class="hljs-keyword">type</span>+fn.name]);
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>            <span class="hljs-comment">//滚轮事件</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">type</span>==<span class="hljs-string">'mousewheel'</span>){
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>                <span class="hljs-comment">//obj['on'+type]= handle;//chrome 及ie</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>                obj.addEventListener?obj.addEventListener(<span class="hljs-string">'DOMMouseScroll'</span>,obj[<span class="hljs-keyword">type</span>+fn.name],<span class="hljs-built_in">boolean</span>):<span class="hljs-string">''</span>;<span class="hljs-comment">//兼容火狐</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>            }
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span>            <span class="hljs-comment">//处理e</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span>           <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle</span>(<span class="hljs-params">e</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">17.</span>                e = e|| <span class="hljs-built_in">window</span>.event;
+</div><div class="hljs-line"><span class="hljs-comment line-number">18.</span>                e.wheel = e.wheelDelta?e.wheelDelta:e.detail*(<span class="hljs-number">-40</span>);<span class="hljs-comment">//处理滚轮方向</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">19.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">20.</span>                fn.call(obj,e);
+</div><div class="hljs-line"><span class="hljs-comment line-number">21.</span>                e.preventDefault?e.preventDefault():e.returnValue = <span class="hljs-literal">false</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">22.</span>            }
+</div><div class="hljs-line"><span class="hljs-comment line-number">23.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">24.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">25.</span>       }
+</div><div class="hljs-line"><span class="hljs-comment line-number">26.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">27.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">28.</span><span class="hljs-comment">//移除事件</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">29.</span>       <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeEvent</span>(<span class="hljs-params">obj,<span class="hljs-keyword">type</span>,fn,<span class="hljs-built_in">boolean</span></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">30.</span>             <span class="hljs-built_in">boolean</span> = <span class="hljs-built_in">boolean</span> || <span class="hljs-literal">false</span>;<span class="hljs-comment">//处理捕获冒泡</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">31.</span>             obj.removeEventListener?obj.removeEventListener(<span class="hljs-keyword">type</span>,obj[<span class="hljs-keyword">type</span>+fn.name],<span class="hljs-built_in">boolean</span>):obj.detachEvent(<span class="hljs-string">'on'</span>+<span class="hljs-keyword">type</span>,obj[<span class="hljs-keyword">type</span>+fn.name]);
+</div><div class="hljs-line"><span class="hljs-comment line-number">32.</span>            <span class="hljs-comment">//滚轮事件</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">33.</span>            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">type</span>==<span class="hljs-string">'mousewheel'</span>){
+</div><div class="hljs-line"><span class="hljs-comment line-number">34.</span>                obj.removeEventListener?obj.removeEventListener(<span class="hljs-string">'DOMMouseScroll'</span>,obj[<span class="hljs-keyword">type</span>+fn.name],<span class="hljs-built_in">boolean</span>):<span class="hljs-string">''</span>;<span class="hljs-comment">//兼容火狐</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">35.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">36.</span>            }
+</div><div class="hljs-line"><span class="hljs-comment line-number">37.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">38.</span>       }
+</div></code></pre></div></body></html>
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2018/03/08/22-第二十二章 表单事件 事件委托 onready封装 键盘事件/" class="alignleft prev" title=""></a>
+    
+    
+    <a href="/2018/03/08/20-第二十章 evetn对象 阻止冒泡 注册l移除监听事件/" class="alignright next" title=""></a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2018/03/08/21-第二十一章 addEventLitener 默认事件 滚轮事件/" data-title="" data-url="http://yoursite.com/2018/03/08/21-第二十一章 addEventLitener 默认事件 滚轮事件/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:""};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+
+  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" 
+	src="https://weibo.com/5581925557/profile?topnav=1&wvr=6&is_all=1">
+</iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hi,I&#39;m the designer of this theme. <br/>
+			You can download this theme on my github.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1923610190" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/huangjunhui" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/huangjunhui" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:jhhuang1993@foxmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2018 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="我的小窝欢迎你">我的小窝欢迎你</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

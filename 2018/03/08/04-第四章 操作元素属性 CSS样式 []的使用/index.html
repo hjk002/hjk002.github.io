@@ -15,15 +15,16 @@
 	})();
 	</script>
   
-  <title>JS开始入坑 | 科科欢迎你</title>
+  <title>科科欢迎你</title>
   <meta name="author" content="我的小窝欢迎你">
   
-  <meta name="description" content="1今天收到了开课通知，JS40期系统班，期待了好久，终于等到了，心里还有点忐忑。传说的万人坑我马上也要进入其中了，不知何时才能脱坑，像大牛们一样。">
+  <meta name="description" content="04-第四章 操作元素属性 CSS样式 []的使用
+.note-content  {font-family: &#39;Helvetica Neue&#39;, Arial, &#39;Hiragino Sans GB&#39;, STHeiti, &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Micro Hei&#39;,">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="JS开始入坑"/>
+  
   <meta property="og:site_name" content="科科欢迎你"/>
 
   
@@ -81,21 +82,91 @@
   <div class="post-content">
     <header class="article-info clearfix">
   <h1 itemprop="name">
-	JS开始入坑
+	
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="我的小窝欢迎你">我的小窝欢迎你</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-03-01T09:05:45.000Z" itemprop="datePublished">2018-03-01</time>
-    Update date:<time datetime="2018-03-01T09:13:14.579Z" itemprop="dateModified">2018-03-01</time>
+    <time datetime="2018-03-08T04:07:48.125Z" itemprop="datePublished">2018-03-08</time>
+    Update date:<time datetime="2017-11-06T06:06:27.447Z" itemprop="dateModified">2017-11-06</time>
     
   </p>
 </header>
     <div class="entry">
 		
-        <script src="\assets\js\APlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">今天收到了开课通知，JS40期系统班，期待了好久，终于等到了，心里还有点忐忑。传说的万人坑我马上也要进入其中了，不知何时才能脱坑，像大牛们一样。</span><br></pre></td></tr></table></figure>
+        <script src="\assets\js\APlayer.min.js"> </script><!DOCTYPE html><html><head><title>04-第四章 操作元素属性 CSS样式 []的使用</title><meta charset="utf-8"><link href="https://dn-maxiang.qbox.me/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="04-第四章-操作元素属性-css样式-的使用">04-第四章 操作元素属性 CSS样式 <code>[]</code>的使用</h1>
+
+
+
+<h2 id="一-cssstyle-操作">一 cssStyle 操作</h2>
+
+
+
+<h4 id="1css样式赋值">1、css样式赋值</h4>
+
+<ul><li>style 对象                   </li>
+<li>复合样式改写  <code>background-color ------&gt; backgroundColor</code></li>
+<li><code>cssText</code> </li>
+<li>style.float的兼容      <code>cssFloat /styleFloat</code></li>
+<li></li>
+</ul>
+
+<hr>
+
+
+
+<h2 id="二-attribute-属性节点">二 attribute 属性节点</h2>
+
+<p>1 .  获取：    <code>getAttribute(名称)</code></p>
+
+<blockquote>
+  <p>优势1<code>.</code>用.和<code>[]</code>的形式无法操作元素的自定义属性    getAttribute可以操作元素的自定义属性</p>
+</blockquote>
+
+<ul><li>设置：    el.<code>setAttribute(名称, 值)</code></li>
+<li>包含：    el.<code>hasAttribute(名称)</code> </li>
+<li>删除：    el.<code>removeAttribute(名称)</code></li>
+</ul>
+
+<p>2 . Attributes :     只读 属性 属性列表集合</p>
+
+<ul><li>e.<code>attributes[index]</code>            第<em>index</em>个属性</li>
+<li>e.<code>attributes.length</code>              属性总个数</li>
+<li>e.<code>attributes[0].name</code>            第一个属性名</li>
+<li>e.<code>attributes[0].value</code>          设置或返回属性的值。 </li>
+<li></li>
+</ul>
+
+<hr>
+
+
+
+<h2 id="三-的运用">三 <code>[]</code>的运用</h2>
+
+<blockquote>
+  <p>当我们需要使用字符串表示属性的时候，或者此时属性会变化的时候</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs processing"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>   obj.style.<span class="hljs-built_in">width</span> = <span class="hljs-string">'ok'</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>   <span class="hljs-comment">//可改为</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>   obj.style[<span class="hljs-string">'width'</span>] = <span class="hljs-string">'ok'</span>；
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>   <span class="hljs-comment">//亦可</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>   var <span class="hljs-built_in">str</span> = <span class="hljs-string">'width'</span>；
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>   obj.style[<span class="hljs-built_in">str</span>] = <span class="hljs-string">'ok'</span>
+</div></code></pre></div></body></html>
     </div>
     <footer>
         
@@ -145,10 +216,10 @@ with(document)0[
 
  <nav id="pagination" >
     
-    <a href="/2018/03/08/01-第一章 初识Javasript/" class="alignleft prev" title=""></a>
+    <a href="/2018/03/08/05-第五章 javascript数据类型 判断 条件语句/" class="alignleft prev" title=""></a>
     
     
-    <a href="/2018/02/20/新年快乐/" class="alignright next" title="新年快乐">新年快乐</a>
+    <a href="/2018/03/08/03-第三章 函数、自定义属性、事件/" class="alignright next" title=""></a>
     
     <div class="clearfix"></div>
 </nav>
@@ -158,7 +229,7 @@ with(document)0[
 	
 	<section id="comment">
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="2018/03/01/JS开始入坑/" data-title="JS开始入坑" data-url="http://yoursite.com/2018/03/01/JS开始入坑/"></div>
+		<div class="ds-thread" data-thread-key="2018/03/08/04-第四章 操作元素属性 CSS样式 []的使用/" data-title="" data-url="http://yoursite.com/2018/03/08/04-第四章 操作元素属性 CSS样式 []的使用/"></div>
 		<!-- 多说评论框 end -->
 		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 		<script type="text/javascript">

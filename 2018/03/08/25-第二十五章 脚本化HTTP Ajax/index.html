@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>科科欢迎你</title>
+  <meta name="author" content="我的小窝欢迎你">
+  
+  <meta name="description" content="25-第二十五章 脚本化HTTP Ajax
+.note-content  {font-family: &#39;Helvetica Neue&#39;, Arial, &#39;Hiragino Sans GB&#39;, STHeiti, &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Micro Hei&#39;, Sim">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="科科欢迎你"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="科科欢迎你" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="科科欢迎你" title="科科欢迎你"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">科科欢迎你</h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="我的小窝欢迎你">我的小窝欢迎你</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-03-08T04:07:48.718Z" itemprop="datePublished">2018-03-08</time>
+    Update date:<time datetime="2017-11-06T06:22:06.052Z" itemprop="dateModified">2017-11-06</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <script src="\assets\js\APlayer.min.js"> </script><!DOCTYPE html><html><head><title>25-第二十五章 脚本化HTTP Ajax</title><meta charset="utf-8"><link href="https://dn-maxiang.qbox.me/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="25-第二十五章-脚本化http-ajax">25-第二十五章 脚本化HTTP Ajax</h1>
+
+<hr>
+
+
+
+<h2 id="一-ajax概述">一、 Ajax概述</h2>
+
+<blockquote>
+  <p>AJAX = <code>Asynchronous JavaScript and XML</code>（异步的 <code>JavaScript</code> 和 <code>XML</code>）。功能：在不刷新页面的情况下，实现与后台的数据交互</p>
+</blockquote>
+
+<p>AJAX 不是新的编程语言，而是一种使用现有标准的新方法。 <br>
+Ajax技术核心是<code>XMLHttpRequest</code>对象(简称XHR)</p>
+
+<ul><li>1 运行在服务器</li>
+<li>2 不能跨域</li>
+<li>3  </li>
+</ul>
+
+<hr>
+
+
+
+<h2 id="二xmlhttprequest-对象方法">二、XMLHttpRequest 对象方法</h2>
+
+
+
+<h4 id="一-创建xmlhttprequest-对象">一 、创建XMLHttpRequest 对象</h4>
+
+<blockquote>
+  <p>创建 <code>new XMLHttpRequest()</code></p>
+  
+  <p>ie 6以下版本<code>new ActiveXObject('Msxml2.XMLHttp.3.0')</code> 或 <code>new ActiveXObject('Msxml2.XMLHTTP.6.0')</code></p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs haxe"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">new</span> <span class="hljs-type">XMLHttpRequest</span>() || <span class="hljs-keyword">new</span> <span class="hljs-type">ActiveXObject</span>(<span class="hljs-string">'Msxml2.XMLHTTP.3.0'</span>)||<span class="hljs-keyword">new</span> <span class="hljs-type">ActiveXObject</span>(<span class="hljs-string">'Msxml2.XMLHTTP.6.0'</span>); 
+</div></code></pre>
+
+
+
+<h4 id="二-openmethodurlasynchusernamepassword">二 、<code>Open(``method</code>,<code>url</code>,<code>asynch</code>,[username],[password]<code>)</code></h4>
+
+<blockquote>
+  <p>指定和服务器端交互的HTTP方法，URL地址，即其他请求信息； <br>
+                  <strong>Method</strong>:     http请求方法，一般使用”<code>GET</code>“,”<code>POST</code>“. <br>
+                  <strong>url</strong>：        请求的<code>服务器的地址</code>； <br>
+                  <strong>asynch</strong>： 是否采用异步方法，<code>true为异步</code>，<code>false为同步</code>； <br>
+                  后边两个可以不指定，<strong>username</strong>和<strong>password</strong>分别表示<code>用户名</code>和<code>密码</code>，提供http认证机制需要的用户名和密码。</p>
+</blockquote>
+
+<hr>
+
+<ul><li><code>GET</code> <br>
+GET请求是最常见的请求类型，最常用于向服务器查询某些信息。必要时，可以将查询字符串参数追加到URL的末尾，以便提交给服务器。</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs processing"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>xhr.<span class="hljs-built_in">open</span>(<span class="hljs-string">'get'</span>, <span class="hljs-string">'demo.php?rand='</span> + Math.<span class="hljs-built_in">random</span>() + <span class="hljs-string">'&amp;name=Koo'</span>, <span class="hljs-keyword">true</span>);
+</div></code></pre>
+
+<p>注意: 特殊字符(eg:<code>&amp;</code>等)，传参产生的问题可以使用<code>encodeURIComponent()</code>进行编码处理，中文字符的返回及传参，可以将页面保存和设置为<code>utf-8</code>格式即可。或者使用提交url通用方法。</p>
+
+<ul><li><code>POST</code> <br>
+POST请求可以包含非常多的数据，我们在使用表单提交的时候，很多就是使用的POST传输方式。 <br>
+xhr.open(‘post’, ‘demo.php’, true); <br>
+而发送POST请求的数据，不会跟在URL的尾巴上，而是通过<code>send()方法向服务器提交数据</code>。 <br>
+xhr.send(‘name=Lee&amp;age=100’); <br>
+一般来说，向服务器发送POST请求由于解析机制的原因，需要进行特别的处理。因为POST请求和Web表单提交是不同的，需要使用XHR来模仿表单提交。</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs ada"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>xhr.setRequestHeader(<span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>', <span class="hljs-symbol">'application</span>/x-www-form-urlencoded');
+</div></code></pre>
+
+<hr>
+
+
+
+<h4 id="三-setrequestheaderstring-headerstring-value如果是post方式需要设置请求头">三 、<code>SetRequestHeader(</code>String header,String Value<code>)</code>如果是POST方式，需要设置<code>请求头</code></h4>
+
+<blockquote>
+  <p>设置HTTP请求中的指定头部header的值为value. <br>
+                  此方法需在open方法以后调用，一般在post方式中使用。</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs ada"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>xhr.setRequestHeader(<span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>', <span class="hljs-symbol">'application</span>/x-www-form-urlencoded');
+</div></code></pre>
+
+
+
+<h4 id="四-senddata">四、 <code>send(</code>data<code>)</code></h4>
+
+<blockquote>
+  <p>向服务器发出请求，如果采用异步方式，该方法会立即返回。 <br>
+              content可以指定为<code>null表示不发送数据</code>，其内容可以是DOM对象，输入流或字符串。</p>
+</blockquote>
+
+
+
+<h4 id="五-abort">五、 <code>Abort()</code></h4>
+
+<blockquote>
+  <p>停止当前http请求。对应的XMLHttpRequest对象会复位到未初始化的状态。</p>
+</blockquote>
+
+
+
+<h2 id="三xmlhttprequest对象属性">三、XMLHttpRequest对象属性</h2>
+
+
+
+<h4 id="一-onreadystatechange">一、 <code>onreadystatechange</code></h4>
+
+<blockquote>
+  <p>请求状态改变的事件触发器（readyState变化时会调用这个属性上注册的javascript函数）。</p>
+</blockquote>
+
+
+
+<h4 id="二-readystate">二、 <code>readyState</code></h4>
+
+<blockquote>
+  <p>表示XMLHttpRequest对象的状态： <br>
+  0：未初始化。对象已创建，<code>未调用open</code>； <br>
+  1：<code>open方法成功调用</code>，但Send方法未调用； <br>
+  2：send方法已经调用，尚未开始接受数据； <br>
+  3：<code>正在接受数据</code>。Http响应头信息已经接受，但尚未接收完成； <br>
+  <strong>4</strong>：<code>完成</code>，即响应数据接受完成。</p>
+</blockquote>
+
+
+
+<h4 id="三-responsetext-responsexml">三、 <code>responseText</code> | <code>responseXML</code></h4>
+
+<blockquote>
+  <p>responseText 服务器响应的<code>文本内容</code> <br>
+  responseXML  服务器响应的<code>XML内容</code>对应的DOM对象</p>
+</blockquote>
+
+
+
+<h4 id="四-status">四、 <code>Status</code></h4>
+
+<blockquote>
+  <p>服务器返回的<code>http状态码</code>。 <br>
+  <strong>200</strong>表示“<code>成功</code>”， <br>
+  <strong>404</strong>表示“未找到”， <br>
+  <strong>500</strong>表示“服务器内部错误”等。</p>
+</blockquote>
+
+<p>a.通过xhr.<code>getResponseHeader(“Content-Type”)</code>;可以获取单个响应头信息 <br>
+b.<code>getAllResponseHeaders()</code>;获取整个响应头信息</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs lisp"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>alert(<span class="hljs-name">xhr</span>.getAllResponseHeaders())<span class="hljs-comment">;</span>
+</div></code></pre></div></body></html>
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2018/03/08/27-第二十七章 面向对象 OOP ECMAscrtipt5(三)/" class="alignleft prev" title=""></a>
+    
+    
+    <a href="/2018/03/08/26-第二十六章 Ajax封装  跨域 jsonp (二)/" class="alignright next" title=""></a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2018/03/08/25-第二十五章 脚本化HTTP Ajax/" data-title="" data-url="http://yoursite.com/2018/03/08/25-第二十五章 脚本化HTTP Ajax/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:""};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+
+  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" 
+	src="https://weibo.com/5581925557/profile?topnav=1&wvr=6&is_all=1">
+</iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hi,I&#39;m the designer of this theme. <br/>
+			You can download this theme on my github.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1923610190" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/huangjunhui" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/huangjunhui" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:jhhuang1993@foxmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2018 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="我的小窝欢迎你">我的小窝欢迎你</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

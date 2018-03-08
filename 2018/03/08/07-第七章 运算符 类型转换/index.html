@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>科科欢迎你</title>
+  <meta name="author" content="我的小窝欢迎你">
+  
+  <meta name="description" content="07-第七章 运算符 类型转换
+.note-content  {font-family: &#39;Helvetica Neue&#39;, Arial, &#39;Hiragino Sans GB&#39;, STHeiti, &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Micro Hei&#39;, SimSun, S">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="科科欢迎你"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="科科欢迎你" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="科科欢迎你" title="科科欢迎你"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">科科欢迎你</h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="我的小窝欢迎你">我的小窝欢迎你</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-03-08T04:07:48.265Z" itemprop="datePublished">2018-03-08</time>
+    Update date:<time datetime="2017-11-06T06:07:04.975Z" itemprop="dateModified">2017-11-06</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <script src="\assets\js\APlayer.min.js"> </script><!DOCTYPE html><html><head><title>07-第七章 运算符 类型转换</title><meta charset="utf-8"><link href="https://dn-maxiang.qbox.me/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="07-第七章-运算符-类型转换">07-第七章 运算符 类型转换</h1>
+
+
+
+<h2 id="一算术运算">一、算术运算</h2>
+
+<p>加—————[<code>+</code>]  <br>
+减—————[<code>-</code>]  <br>
+乘—————[<code>*</code>]  <br>
+除—————[ <code>/</code> ]  <br>
+取模、取余 —[<code>%</code>]</p>
+
+<blockquote>
+  <h4 id="1-隐式类型转换">1. 隐式类型转换</h4>
+</blockquote>
+
+<p><code>+</code>  在有字符串的时候,会进行字符串<code>拼接</code> <br>
+  <code>-</code> <code>*</code> <code>/</code> <code>%</code> 会尽力把不是数字的转化为<code>数字</code></p>
+
+<blockquote>
+  <h4 id="2nan-not-a-number不是一个数字">2、<code>NaN</code>  ——————————–not a number(不是一个数字)</h4>
+</blockquote>
+
+<ul><li><code>不是数字的数字类型</code>（number类型）</li>
+<li>NaN<code>和自己都不相等</code></li>
+<li><code>isNaN(</code> obj <code>)</code>  判断是否为NaN,是返回<code>true</code>,否返回<code>false</code>;</li>
+</ul>
+
+<blockquote>
+  <h4 id="3显示类型转化化">3、显示类型转化化</h4>
+</blockquote>
+
+
+
+<h3 id="转数字"><a href="http://www" target="_blank"> 》 转数字</a></h3>
+
+<p><code>Number()</code>  可以用于任何数据类型转换成数值，<code>parseInt()</code>、<code>parseFloat()</code>:专门用于把字符串转换成数值 <br>
+都是忽略前导的空格</p>
+
+<p>1) <code>Number()</code>  </p>
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-number">1</span>）能把字符串转化为数字。
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-number">2</span>）如果字符串是空的（不包含任何字符），则将其转换为<span class="hljs-number">0</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-number">3</span>）如果带非数字的字符串,返回<span class="hljs-literal">NaN</span>。
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span><span class="hljs-number">4</span>）<span class="hljs-literal">undefined</span>,返回<span class="hljs-literal">NaN</span>。
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-number">5</span>）<span class="hljs-literal">true</span>和<span class="hljs-literal">false</span>将分别转换为<span class="hljs-number">1</span>和<span class="hljs-number">0</span>。
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-number">6</span>）<span class="hljs-literal">null</span>值，返回<span class="hljs-number">0</span>。
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>( <span class="hljs-string">'-100.02'</span> );
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span><span class="hljs-built_in">console</span>.log( a );            <span class="hljs-comment">//-100.02</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>( <span class="hljs-string">'100px'</span> );
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span><span class="hljs-built_in">console</span>.log( a );           <span class="hljs-comment">//NaN</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>( <span class="hljs-string">''</span> );
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span><span class="hljs-built_in">console</span>.log( a );            <span class="hljs-comment">//0</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>( <span class="hljs-literal">undefined</span> );
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span><span class="hljs-built_in">console</span>.log( a );            <span class="hljs-comment">//NaN</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>( <span class="hljs-literal">true</span> );
+</div><div class="hljs-line"><span class="hljs-comment line-number">17.</span><span class="hljs-built_in">console</span>.log( a );           <span class="hljs-comment">//1</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">18.</span><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>( <span class="hljs-literal">null</span> );
+</div><div class="hljs-line"><span class="hljs-comment line-number">19.</span><span class="hljs-built_in">console</span>.log( a );           <span class="hljs-comment">//0</span>
+</div></code></pre>
+
+<p>2) <code>parseInt()</code>  （取整）取 <code>非数字整前的数字</code> ，或<code>小数点前的数字</code>——-</p>
+
+<p>3)  <code>parseFloat()</code>  能取得 小数，<code>第二个小数点前的数字</code></p>
+
+
+
+<h3 id="转字符串"><a href="http://www" target="_blank"> 》 转字符串</a></h3>
+
+<p><code>String(</code>  obj  <code>)</code>; <br>
+obj.<code>toString()</code>;</p>
+
+
+
+<h2 id="二赋值运算">二、赋值运算</h2>
+
+
+
+<h4 id="title"><code>=</code>  <code>+=</code>  <code>-=</code>  <code>*=</code>  <code>/=</code>  <code>%=</code>  <code>++</code>  <code>--</code></h4>
+
+
+
+<h2 id="三比较运算">三、比较运算</h2>
+
+<p><code>&lt;</code>————–小于 <br>
+ <code>&gt;</code> ————-大于 <br>
+  <code>= =</code> ————- 等于 <br>
+<code>&lt;=</code> ————-小于等于 <br>
+ <code>&gt;=</code> ————- 大于等于 <br>
+ <code>!=</code> ————- 不等于 <br>
+<code>= = =</code>————- 全等，除了值的判断，还会进行unicode 编码的对比 <br>
+<code>!==</code>————-不全等 <br>
+返回boolean值 </p>
+
+
+
+<h2 id="四逻辑运算">四、逻辑运算</h2>
+
+<p><code>||</code>————-逻辑或 <br>
+<code>&amp;&amp;</code>————–逻辑与</p>
+
+<p>赋值操作</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs swift"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-keyword">var</span> <span class="hljs-built_in">c</span> = a || b;
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-comment">//如果a为true,则用a赋值，如果a为false,则用b赋值</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-keyword">var</span> <span class="hljs-built_in">c</span> = a &amp;&amp; b;
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-comment">//如果a为true,则通过，用 b 赋值</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span><span class="hljs-comment">//如果a为false,用 a 赋值</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>
+</div></code></pre>
+
+<p>布尔值操作</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs gcode"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">if</span><span class="hljs-comment">( a || b )</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    <span class="hljs-comment">//如果a为true,则为true</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    <span class="hljs-comment">//如果a为false,则看b</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>}
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-keyword">if</span><span class="hljs-comment">( a &amp;&amp; b )</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>    <span class="hljs-comment">//如果a为true,则通过，看b,b为true则为true</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>    <span class="hljs-comment">//如果a为false,则false</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>}
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>
+</div></code></pre>
+
+<p>多则运算及优先级</p>
+
+<hr>
+
+<p><code>!</code>————–取反</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs ruby"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">if</span>( !obj ){
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-regexp">//</span>首先会把obj转化为布尔值，如果 obj是<span class="hljs-literal">true</span>,则!obj为<span class="hljs-literal">false</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>}
+</div></code></pre></div></body></html>
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2018/03/08/08-第八章 函数[自执行] [传参] [return] getComputedStyle()/" class="alignleft prev" title=""></a>
+    
+    
+    <a href="/2018/03/08/06-第六章 for循环  while后循环  do while前循环/" class="alignright next" title=""></a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2018/03/08/07-第七章 运算符 类型转换/" data-title="" data-url="http://yoursite.com/2018/03/08/07-第七章 运算符 类型转换/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:""};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+
+  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" 
+	src="https://weibo.com/5581925557/profile?topnav=1&wvr=6&is_all=1">
+</iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hi,I&#39;m the designer of this theme. <br/>
+			You can download this theme on my github.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1923610190" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/huangjunhui" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/huangjunhui" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:jhhuang1993@foxmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2018 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="我的小窝欢迎你">我的小窝欢迎你</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
